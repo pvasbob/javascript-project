@@ -1,0 +1,78 @@
+p {
+  margin: 0;
+  font-family: Arial;
+}
+
+.js-control {
+  width: 500px;
+}
+
+.js-input-container,
+.js-record-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 3fr 2fr 100px;
+  gap: 10px;
+
+  margin-bottom: 20px;
+}
+
+.js-input-container input,
+.js-input-container button,
+.js-record-container p,
+.js-record-container button {
+  /*  */
+  height: 40px;
+  /* box-sizing: content-box; */
+  /* set to border-box at first, more predictable */
+  box-sizing: border-box;
+  line-height: normal;
+
+  font-family: Arial;
+  font-size: 14px;
+
+  width: 100%;
+  padding: 6px 10px;
+
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+}
+
+.js-input-container input,
+.js-input-container button {
+  height: 40px;
+  /* border: 1px solid #ccc; */
+  border: 1px solid #ccc;
+}
+
+.js-input-container button {
+  border: none;
+  background-color: rgb(2, 124, 2);
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.js-record-container button {
+  /* border: 0px solid #ccc; */
+  border: none;
+  background-color: rgb(163, 3, 3);
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* .js-input-container button,
+.js-record-container button {
+  margin-left: 10px;
+}
+ */
+
+/*
+1. to center the content in a container: set this container to display: flex, and set align-item or justify-content to 'center'
+*/

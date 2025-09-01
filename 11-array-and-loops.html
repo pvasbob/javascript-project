@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Arrays-addStorage</title>
+    <link rel="stylesheet" href="./styles/11-array-and-loops.css" />
+    <style></style>
+  </head>
+  <body>
+    <div class="js-control">
+      <div class="js-input-container">
+        <input
+          class="js-inputText"
+          type="text"
+          placeholder="Todo name"
+          onkeydown="
+            if (event.key === 'Enter') addTodo();"
+        />
+        <input class="js-inputDate" type="date" name="" id="" />
+        <button class="js-addButton" onclick="addTodo();">Add</button>
+      </div>
+      <div class="js-record-container"></div>
+    </div>
+
+    <script src="./scripts/11-array-and-loops.js"></script>
+  </body>
+</html>
+
+<!-- 
+
+1. To use display: grid, and make sure the following grid aligh with each other, make sure they use 100% or same percentage of width. 
+
+2. pay attention to the "" or '' inside onclick, it won't show the incorrect part. 
+
+3. Make sure <input> and <button> has the same box-sizing. Default: different.
+-->
