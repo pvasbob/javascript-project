@@ -54,6 +54,7 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 
 .js-record-container button {
@@ -65,6 +66,8 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
+
+  cursor: pointer;
 }
 
 /* .js-input-container button,
