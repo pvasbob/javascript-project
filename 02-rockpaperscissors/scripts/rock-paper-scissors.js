@@ -86,11 +86,11 @@ function updateScoreElement() {
               `;
 }
 
-let intervalId = null;
+let intervalId;
 let autoPlay = function () {
   const autoPlayEle = document.querySelector(".autoPlay-button");
   // intervalId has to be outside of the event calling function.
-  // let intervalId = null;
+  // let intervalId;
   if (autoPlayEle.innerHTML === "Auto Play") {
     autoPlayEle.innerHTML = "Stop Play";
     intervalId = setInterval(() => playGame(pickComputerMove()), 1000);
