@@ -25,14 +25,16 @@ function addTodo() {
   localStorage.setItem("todoList", JSON.stringify(todoList));
 }
 
+// here can not use let showTodoList = function () {}, something to do with window scope
 function showTodoList() {
   let todoListHTML = ``;
-  for (let i = 0; i < todoList.length; i++) {
+  // repalce for loop with forEach()
+  todoList.forEach((param, index) => {
     todoListHTML += `
-                <p class='js-record-name'>${todoList[i].name}</p>
-                <p class='js-record-date'>${todoList[i].date}</p>
+                <p class='js-record-name'>${param.name}</p>
+                <p class='js-record-date'>${param.date}</p>
                 <button class='js-record-delete' onclick="
-                  todoList.splice(${i}, 1);
+                  todoList.splice(${index}, 1);
                   showTodoList();
                   // localStorage.setItem('todoList', JSON.stringify(todoList));"
                 >
@@ -41,7 +43,8 @@ function showTodoList() {
 
 
           `;
-  }
+  });
+
   showlistEle.innerHTML = todoListHTML;
   localStorage.setItem("todoList", JSON.stringify(todoList));
 }
