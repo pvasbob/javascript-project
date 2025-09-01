@@ -57,7 +57,8 @@ body {
   height: 60px;
 }
 
-.reset-score-button {
+.reset-score-button,
+.autoPlay-button {
   padding: 10px 10px;
   font-family: Arial;
   font-size: 15px;

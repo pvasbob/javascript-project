@@ -85,3 +85,21 @@ function updateScoreElement() {
              </p>
               `;
 }
+
+let intervalId = null;
+let autoPlay = function () {
+  const autoPlayEle = document.querySelector(".autoPlay-button");
+  // intervalId has to be outside of the event calling function.
+  // let intervalId = null;
+  if (autoPlayEle.innerHTML === "Auto Play") {
+    autoPlayEle.innerHTML = "Stop Play";
+    intervalId = setInterval(() => playGame(pickComputerMove()), 1000);
+  } else if (autoPlayEle.innerHTML === "Stop Play") {
+    clearInterval(intervalId);
+    intervalId = null;
+    autoPlayEle.innerHTML = "Auto Play";
+    console.log("Game Stopped");
+  }
+};
+
+// intervalId has to be outside of function to avoid creating a new one everytime the function is executed when clicking the button.
