@@ -7,11 +7,31 @@ console.log(score);
 
 updateScoreElement();
 
+document.body.addEventListener("keydown", (event) => {
+  console.log(event.key);
+  if (event.key === "r") playGame("rock");
+  else if (event.key === "p") playGame("paper");
+  else if (event.key === "s") playGame("scissors");
+});
+
 // document.querySelector(".js-show-score").innerHTML = `
 //        <p>
 //        \nWins: ${score.wins}, Lossses: ${score.losses}, Ties: ${score.ties} ;
 //        </p>
 //         `;
+
+// set onclick event for three buttons.
+document.querySelector(".js-rock-button").addEventListener("click", () => {
+  playGame("rock");
+});
+
+document.querySelector(".js-paper-button").addEventListener("click", () => {
+  playGame("paper");
+});
+
+document.querySelector(".js-scissors-button").addEventListener("click", () => {
+  playGame("scissors");
+});
 
 function playGame(rps) {
   let result = "";
@@ -87,7 +107,7 @@ function updateScoreElement() {
 }
 
 let intervalId;
-let autoPlay = function () {
+function autoPlay() {
   const autoPlayEle = document.querySelector(".autoPlay-button");
   // intervalId has to be outside of the event calling function.
   // let intervalId;
@@ -100,6 +120,6 @@ let autoPlay = function () {
     autoPlayEle.innerHTML = "Auto Play";
     console.log("Game Stopped");
   }
-};
+}
 
 // intervalId has to be outside of function to avoid creating a new one everytime the function is executed when clicking the button.

@@ -6,6 +6,11 @@ const showlistEle = document.querySelector(".js-record-container");
 
 showTodoList();
 
+document.querySelector(".js-addButton").addEventListener("click", addTodo);
+document.querySelector(".js-inputText").addEventListener("keydown", (event) => {
+  if (event.key === "Enter") addTodo();
+});
+
 function addTodo() {
   console.log(inputTextEle.value);
   console.log("inside AddTodo, before date");
@@ -25,7 +30,7 @@ function addTodo() {
   localStorage.setItem("todoList", JSON.stringify(todoList));
 }
 
-// here can not use let showTodoList = function () {}, something to do with window scope
+// here can not use let showTodoList = function () {}, something to do with window scope, or Hoisting.
 function showTodoList() {
   let todoListHTML = ``;
   // repalce for loop with forEach()
@@ -33,18 +38,23 @@ function showTodoList() {
     todoListHTML += `
                 <p class='js-record-name'>${param.name}</p>
                 <p class='js-record-date'>${param.date}</p>
-                <button class='js-record-delete' onclick="
-                  todoList.splice(${index}, 1);
-                  showTodoList();
-                  // localStorage.setItem('todoList', JSON.stringify(todoList));"
-                >
-                    Delete
-                </button>
-
-
+                <button class='js-record-delete'>Delete</button>
           `;
   });
 
   showlistEle.innerHTML = todoListHTML;
+  document
+    .querySelectorAll(".js-record-delete")
+    .forEach((deleteButton, index) => {
+      // DO NOT ADD INDEX INSIDE THE () OF THE LAMBDA FUNCTION, THAT IS EVENT, NOT
+      // THE ACTUAL INDEX OF FOREACH.
+      // Any function passed into .addEventListener() is called by browser, dand
+      //  thus can only receive event form the () from browser.
+      // deleteButton.addEventListener("click", (index) => {
+      deleteButton.addEventListener("click", () => {
+        todoList.splice(index, 1);
+        showTodoList();
+      });
+    });
   localStorage.setItem("todoList", JSON.stringify(todoList));
 }
